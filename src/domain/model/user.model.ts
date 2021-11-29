@@ -54,4 +54,13 @@ export class UserModel {
     this.createdAt = props.createdAt;
     this.updatedAt = props.updatedAt;
   }
+
+  static create(props: UserProps) {
+    const user: UserModel = new UserModel(props);
+    user.createdAt = new Date();
+    user.updatedAt = new Date();
+    user.active = true;
+
+    return user;
+  }
 }
