@@ -1,73 +1,138 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# Clean Architecture com nestjs
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Projeto rest api com arquitetura clean e framework nestjs
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Setup Projeto
 
-## Description
+### Depêndencias
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Nodejs >= v12
+- Git
+- yarn
 
-## Installation
+### Download projeto
 
-```bash
-$ npm install
+```
+git clone git@github.com:everton-roliveira/clean-architecture-nestjs.git
 ```
 
-## Running the app
+---
+
+## Iniciar repositório.
+
+### Instalação
+
+```bash
+$ yarn install
+```
+
+---
+
+### Rodar o App
 
 ```bash
 # development
-$ npm run start
+$ yarn start
 
 # watch mode
-$ npm run start:dev
+$ yarn start:dev
 
 # production mode
-$ npm run start:prod
+$ yarn start:prod
 ```
 
-## Test
+---
+
+### Teste
 
 ```bash
 # unit tests
-$ npm run test
+$ yarn test
 
 # e2e tests
-$ npm run test:e2e
+$ yarn test:e2e
 
 # test coverage
-$ npm run test:cov
+$ yarn test:cov
 ```
 
-## Support
+---
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Contato
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Everton Roberto](https://www.linkedin.com/in/evertonrobertodeoliveira/)
+- github - [https://github.com/everton-roliveira](https://github.com/everton-roliveira)
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+[[MIT licensed]](license.md).
+
+---
+
+## Clean Architecture
+
+Arquitetura limpa é uma filosofia de design de software que separa os elementos de um design em níveis de anel. Um objetivo importante da arquitetura limpa é fornecer aos desenvolvedores uma maneira de organizar o código de forma que ele encapsule a lógica de negócios, mas o mantenha separado do mecanismo de entrega.
+
+Concretamente, existem 3 pacotes principais: domain, usecases e infrastructure. Esses pacotes devem respeitar as seguintes regras:
+
+- **domain** -> contém o código de negócios e sua lógica e não tem dependência externa: nem em frameworks (NestJS nesse caso), nem em usecases ou pacotes de infrastructure.
+- **usecases** -> é como um condutor. Dependerá apenas do pacote de domain para executar a lógica de negócios. usecases não deve ter nenhuma dependência na infrastructure (incluindo framework ou módulo npm).
+- **infrastructure** -> contém todos os detalhes técnicos, configurações, implementações (banco de dados, serviços web, módulo npm, etc.) e não deve conter nenhuma lógica de negócios. a infrastructure tem dependências de domain, usecases e estruturas.
+
+---
+
+## Convetional Commits
+
+Convencional Commits fornece um conjunto fácil de regras para criar um histórico de commits explícito.
+
+[[Saber mais]](https://www.conventionalcommits.org/en/v1.0.0/)
+
+### Estrutura
+
+```
+<tipo>[escopo opcional]: <descrição>
+
+[corpo opcional]
+
+[rodapé(s) opcional(is)]
+```
+
+A mensagem deve ser escrita com letras minúsculas, com um espaço entre o dois pontos e a descrição e sem ponto final.
+
+### Tipos
+
+- **chore**: Atualização de tarefas que não ocasionam alteração no código de produção, mas mudanças de ferramentas, mudanças de configuração e bibliotecas.
+- **feat**: São adições de novas funcionalidades ou de quaisquer outras novas implantações ao código.
+- **fix**: Essencialmente definem o tratamento de correções de bugs.
+- **refactor**: Utilizado em quaisquer mudanças que sejam executados no código, porém não alterem a funcionalidade final da tarefa impactada.
+- **docs**: Inclusão ou alteração somente de arquivos de documentação.
+- **perf**: Uma alteração de código que melhora o desempenho.
+- **style**: Alterações referentes a formatações na apresentação do código que não afetam o significado do código, como por exemplo: espaço em branco, formatação, ponto e vírgula ausente etc.
+- **test**: Adicionando testes ausentes ou corrigindo testes existentes nos processos de testes automatizados (TDD).
+- **build**: Alterações que afetam o sistema de construção ou dependências externas (escopos de exemplo: gulp, broccoli, npm).
+- **ci**: Mudanças em nossos arquivos e scripts de configuração de CI (exemplo de escopos: Travis, Circle, BrowserStack, SauceLabs).
+- **env**: Utilizado na descrição de modificações ou adições em arquivos de configuração em processos e métodos de integração contínua (CI), como parâmetros em arquivos de configuração de containers.
+
+### Exemplos de Commits:
+
+- `chore: add commitlint e husky`
+- `chore(eslint): obrigar o uso de aspas duplas no jsx`
+- `refactor: refatorando a tipagem`
+- `feat: add axios / buscando e tratando os dados`
+- `feat(page/home): criando o roteamentento no next`
+
+---
+
+## Versionamento Semântico
+
+Conjunto simples de regras e requisitos que ditam como os números das versões são atribuídos e incrementados.
+
+[[Saber mais]](https://semver.org/lang/pt-BR/)
+
+Dado um número de versão MAJOR.MINOR.PATCH, incremente a:
+
+- **versão Maior** (MAJOR): quando fizer mudanças incompatíveis na API.
+- **versão Menor** (MINOR): quando adicionar funcionalidades mantendo compatibilidade.
+- **versão de Correção** (PATCH): quando corrigir falhas mantendo compatibilidade.
+
+Rótulos adicionais para pré-lançamento(pre-release) e metadados de construção(build) estão disponíveis como extensão ao formato `MAJOR.MINOR.PATCH`.
