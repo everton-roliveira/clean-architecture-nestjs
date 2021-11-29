@@ -15,7 +15,7 @@ export const getTypeOrmModuleOptions = (
   entities: [__dirname + './../../**/*.entity{.ts,.js}'],
   synchronize: false,
   cli: {
-    migrationsDir: './src/infrastructure/database/migrations',
+    migrationsDir: './src/infra/database/migrations',
   },
 });
 @Module({
