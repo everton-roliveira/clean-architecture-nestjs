@@ -18,6 +18,10 @@ async function bootstrap() {
   // interceptors
   app.useGlobalInterceptors(new LoggingInterceptor(new LoggerService()));
   app.useGlobalInterceptors(new ResponseInterceptor());
-  await app.listen(3000);
+
+  // base routing
+  app.setGlobalPrefix('api/v1');
+
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
