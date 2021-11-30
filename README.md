@@ -23,7 +23,7 @@ git clone git@github.com:everton-roliveira/clean-architecture-nestjs.git
 ### Instalação
 
 ```bash
-$ yarn install
+yarn install
 ```
 
 ---
@@ -32,13 +32,13 @@ $ yarn install
 
 ```bash
 # development
-$ yarn start
+yarn start
 
 # watch mode
-$ yarn start:dev
+yarn start:dev
 
 # production mode
-$ yarn start:prod
+yarn start:prod
 ```
 
 ---
@@ -47,13 +47,13 @@ $ yarn start:prod
 
 ```bash
 # unit tests
-$ yarn test
+yarn test
 
 # e2e tests
-$ yarn test:e2e
+yarn test:e2e
 
 # test coverage
-$ yarn test:cov
+yarn test:cov
 ```
 
 ---
