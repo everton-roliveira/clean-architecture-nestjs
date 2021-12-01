@@ -9,6 +9,8 @@ Projeto rest api com arquitetura clean e framework nestjs
 - Nodejs >= v12
 - Git
 - yarn
+- docker
+- docker-compose
 
 ### Download projeto
 
@@ -24,6 +26,20 @@ git clone git@github.com:everton-roliveira/clean-architecture-nestjs.git
 
 ```bash
 yarn install
+```
+
+---
+
+### Rodar banco de dados
+
+```
+yarn db:up
+```
+
+### Efetuar migração de tabelas
+
+```
+yarn migration:up
 ```
 
 ---
